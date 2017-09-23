@@ -1,8 +1,12 @@
 import { Component } from "@angular/core";
-
+import {Page} from "ui/page";
 @Component({
-    selector: "ns-app",
+    selector: "app",
     templateUrl: "app.component.html",
 })
 
-export class AppComponent { }
+export class AppComponent {
+
+}
+
+

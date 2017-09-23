@@ -3,7 +3,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/security", pathMatch: "full" }
+    { path: "", redirectTo: "/security/standbytologin", pathMatch: "full" }
 ];
 
 @NgModule({

@@ -1,9 +1,14 @@
-import { Component } from "@angular/core";
-
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 @Component({
-    selector: "ns-app",
+    selector: "security",
     templateUrl: "security.component.html",
     moduleId: module.id
 })
 
-export class SecurityComponent { }
+export class SecurityComponent implements OnInit {
+    constructor(private router: Router) { }
+    ngOnInit () {
+        // this.router.navigate(["/security/standbytologin"]);
+    }
+ }
