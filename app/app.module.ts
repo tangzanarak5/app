@@ -3,6 +3,9 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { SecurityModule } from "./components/security/security.module";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { HttpModule } from '@angular/http';
+import { NativeScriptHttpModule } from "nativescript-angular/http";
 
 @NgModule({
     bootstrap: [
@@ -11,7 +14,10 @@ import { SecurityModule } from "./components/security/security.module";
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        SecurityModule
+        SecurityModule,
+        NativeScriptFormsModule,
+        HttpModule,
+        NativeScriptHttpModule
     ],
     declarations: [
         AppComponent,

@@ -1,15 +1,14 @@
 import { Component } from "@angular/core";
 import { Router, ActivatedRoute, UrlSegment } from "@angular/router";
 @Component({
-    selector: "login",
-    templateUrl: "login.component.html",
+    selector: "registerAccount",
+    templateUrl: "registerAccount.component.html",
     moduleId: module.id
 })
 
-export class LoginComponent {
+export class registerAccountComponent {
 
-    username;
-    password;
+    phoneNumber;
 
     constructor(private router: Router,r: ActivatedRoute) {
         r.url.subscribe((s:UrlSegment[]) => {

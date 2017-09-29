@@ -1,0 +1,6 @@
+<ActionBar> <label text = "ลงทะเบียนเวชระเบียน"></label></ActionBar>
+<StackLayout>
+    <TextField [(ngModel)]="idCard" hint="หมายเลขบัตรประชาชน"></TextField>
+    <Button class="btn btn-primary" text = "ตรวจสอบ" (tap)="checkIdCard()"></Button>>
+    <Label [text] = "idCard"></Label>
+</StackLayout>

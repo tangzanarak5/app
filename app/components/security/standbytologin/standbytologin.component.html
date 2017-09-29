@@ -1,6 +1,12 @@
 <Page>
     <StackLayout>
-        <Button text = "SING IN" [nsRouterLink]="['../login']"></Button>>
+        <TextField [(ngModel)]="username" hint="หมายเลขผู้ป่วย"></TextField>
+        <TextField [(ngModel)]="password" hint="พาสเวิร์ด"></TextField>
+        <Button class="btn btn-warning" text = "เข้าสู่ระบบ" (tap)="login()"></Button>
+
+        <button class="btn btn-primary" text = "สมัครสมาชิก" [nsRouterLink]="['../registerAccount']"></button>
+        <button class="btn btn-primary" text = "ลงทะเบียนเวชระเบียน" [nsRouterLink]="['../verifyidcard']"></button>
+        <button class="btn btn-primary" text = "ตรวจสอบเลขผู้ป่วย"></button>
     </StackLayout>
 </Page>
 

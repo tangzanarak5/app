@@ -4,7 +4,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { SecurityComponent } from "./security.component";
 import { StandByToLoginComponent } from "./standbytologin/standbytologin.component";
 import { LoginComponent } from "./login/login.component";
-
+import { registerAccountComponent } from "./registerAccount/registerAccount.component";
+import { verifyidcardComponent } from "./verifyidcard/verifyidcard.component";
 const routes: Routes = [
     { 
         path: "security", 
@@ -22,6 +23,14 @@ const routes: Routes = [
             {
                 path: 'login',
                 component: LoginComponent
+            },
+            {
+                path: 'registerAccount',
+                component: registerAccountComponent
+            },
+            {
+                path: 'verifyidcard',
+                component: verifyidcardComponent
             }
         ]
     }

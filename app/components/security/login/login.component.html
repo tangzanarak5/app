@@ -1,3 +1,6 @@
 <StackLayout>
-    <TextField hint="Phone number"></TextField>
+    <TextField [(ngModel)]="username" hint="หมายเลขผู้ป่วย"></TextField>
+    <TextField [(ngModel)]="password" hint="พาสเวิร์ด"></TextField>
+    <Button text = "ตรวจสอบ" (tap)="test()"></Button>>
+    <Label [text] = "phoneNumber"></Label>
 </StackLayout>
