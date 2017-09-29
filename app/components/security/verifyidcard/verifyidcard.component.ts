@@ -16,7 +16,7 @@ export class verifyidcardComponent {
     res;
 
     getDataPeople () {
-        this.verifyidcardService.getCompanyGuidPJM()
+        this.verifyidcardService.getDataPatient()
         .subscribe(
             (Response) => {
                 let resultData = Response;
