@@ -1,0 +1,38 @@
+.sizePicture {
+    margin-top: 105px;
+    margin-bottom: 105px;
+    height: 50%;
+    width: 50%;
+}
+.sizeInput {
+    width: 80%;
+    font-size: 18px;
+}
+.sizeLogin {
+    background-color: #008CBA;
+    width: 75%;
+    font-size: 18px;
+}
+.sizeButton {
+    height: 10%;
+    width: 65%;
+    font-size: 18px;
+    background-color: #fd8421;
+    margin-bottom: -15px;
+}
+.StackBg {
+  background-color: #5C6BC0;
+}
+.marginTop {
+    margin-top: 10px;
+}
+.marginMiddle {
+    text-align: center;
+}
+.Cloud-Light {
+    font-family: "Cloud-Light" ;
+    font-weight: 800;
+}
+.sizeFont {
+    font-size: 16px;
+}

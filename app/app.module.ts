@@ -6,6 +6,7 @@ import { SecurityModule } from "./components/security/security.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { HttpModule } from '@angular/http';
 import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { ModalDialogService } from "nativescript-angular/modal-dialog";
 
 @NgModule({
     bootstrap: [
@@ -23,6 +24,7 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
         AppComponent,
     ],
     providers: [
+        ModalDialogService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

@@ -4,20 +4,20 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from "rxjs/Rx";
 import { connectionType, getConnectionType } from "connectivity";
 import { securityService } from "../security.service";
-import { user } from "../model/user.model"
+import { checkRegister } from "../model/checkRegister.model"
 
 @Injectable()
-export class verifyidcardService {
-
-    user: user;
+export class registerAccountService {
+    
+    checkRegister: checkRegister;
     token = "826e3b99209de82685009d0eff4c2703f";
 
     getDataPatient (): Observable<any> {
-        this.user = new user();
-        console.log(securityService.getUserData);
-        this.user = JSON.parse(securityService.getUserData);
-        console.log(this.user.idCard);
-        let url = "https://cpa.go.th/api/patient.php?request=get&cid=" + this.user.idCard + "&token=" + this.token;
+        this.checkRegister = new checkRegister();
+        console.log(securityService.getCheckRegister);
+        this.checkRegister = JSON.parse(securityService.getCheckRegister);
+        console.log(this.checkRegister.idCard);
+        let url = "https://cpa.go.th/api/patient.php?request=get&cid=" + this.checkRegister.idCard + "&token=" + this.token;
         return this.http.get(url).map(response => response.json())
         .catch(this.handleErrors);
     }

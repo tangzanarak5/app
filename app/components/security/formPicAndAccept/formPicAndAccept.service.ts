@@ -6,20 +6,25 @@ import { connectionType, getConnectionType } from "connectivity";
 import { securityService } from "../security.service";
 import { user } from "../model/user.model"
 
+let headers = new Headers({ "Content-Type": "application/json" });
+let options = new RequestOptions({ headers: headers });
+
 @Injectable()
-export class verifyidcardService {
-
-    user: user;
-    token = "826e3b99209de82685009d0eff4c2703f";
-
-    getDataPatient (): Observable<any> {
-        this.user = new user();
-        console.log(securityService.getUserData);
+export class formPicAndAcceptService {
+    user = new user();
+    
+    postDataPatient () {
         this.user = JSON.parse(securityService.getUserData);
         console.log(this.user.idCard);
-        let url = "https://cpa.go.th/api/patient.php?request=get&cid=" + this.user.idCard + "&token=" + this.token;
-        return this.http.get(url).map(response => response.json())
-        .catch(this.handleErrors);
+        let url = "http://192.168.1.11:7777/newUser";
+        return this.http.post(url, JSON.stringify(this.user), options)
+        .subscribe(result => 
+            {
+               console.log("response : "+result);
+            }, error => 
+            {
+            console.dir(error);
+            });
     }
   
     constructor(

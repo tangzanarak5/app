@@ -1,40 +1,73 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, UrlSegment } from "@angular/router";
 import { verifyidcardService } from "./verifyidcard.service";
 import { Observable } from 'rxjs/Rx';
 import { Headers, Http, Response, RequestOptions } from '@angular/http'
 import { connectionType, getConnectionType } from "connectivity";
+import { Page } from "tns-core-modules/ui/page";
+import { user } from "../model/user.model"
+import { securityService } from "../security.service";
+
 @Component({
     selector: "verifyidcard",
     templateUrl: "verifyidcard.component.html",
+    styleUrls: ['verifyidcard.component.css'],
     moduleId: module.id
 })
 
-export class verifyidcardComponent {
-
-    idCard;
+export class verifyidcardComponent implements OnInit {
+    
+    idCard = "";
     res;
-
+    userData;
+    user: user ;
+    ngOnInit(): void {
+        this.user = new user();
+        console.log(securityService.getUserData);
+        this.user = JSON.parse(securityService.getUserData);
+    }
     getDataPeople () {
+        let nts = this ;
         this.verifyidcardService.getDataPatient()
         .subscribe(
             (Response) => {
-                let resultData = Response;
-                let testtest = resultData.guid;
+
+                //let resultUserData = Response.dataset.find(item => item.cid === vm.idCard);
+                
+                if (Response.dataset.cid == nts.idCard) {
+                    console.log('yes');
+                    alert("หมายเลขบัตรประชาชนนี้ลงทะเบียนแล้ว");
+                }
+                    else {
+                            console.log('no');
+                            this.router.navigate(["/security/formProfileRecord"]);
+                        }
             },
             (error) => {
                 alert("Get Error");
             }
         )
-    }
-    
-    constructor(private router: Router,r: ActivatedRoute, private verifyidcardService: verifyidcardService) {
-        r.url.subscribe((s:UrlSegment[]) => {
-         console.log("url", s);
-     });
- }
+        
+    } 
+ constructor(
+    page: Page,
+    private router: Router,
+    private route: ActivatedRoute,
+    private verifyidcardService: verifyidcardService
+) {
+    page.actionBarHidden = true;
+    route.url.subscribe((s:UrlSegment[]) => {
+        console.log("url", s);
+    });
+}
  
     checkIdCard () {
+        let test = this.idCard.length
+        
+        if (test != 13) {
+            alert("กรุณากรอกหมายเลขบัตรประชาชนให้ครบ 13 หลัก");
+        }
+        if (test == 13) {
         this.res = this.idCard.split("");
         console.log(this.res);
         let r = 13;
@@ -59,25 +92,30 @@ export class verifyidcardComponent {
            SumDigit = CheckDigit%10;
            if(SumDigit == this.res[12]){
                 console.log("หมายเลขบัตรประชาชนถูกต้อง");
-                console.log(this.res[12]);
+                this.user.idCard = this.idCard ;
+                securityService.setUserData = JSON.stringify(this.user);
+                //console.log(JSON.stringify(this.user));
                 this.getDataPeople();
+                
            }
            else{
                 console.log("หมายเลขบัตรประชาชนไม่ถูกต้อง");
-                console.log(this.res[12]);
+                alert("หมายเลขบัตรประชาชนไม่ถูกต้อง");
            }
         }
         if(CheckDigit < 10){
             if(CheckDigit == this.res[12]){
                 console.log("หมายเลขบัตรประชาชนถูกต้อง");
-                console.log(this.res[12]);
+                this.user.idCard = this.idCard ;
+                securityService.setUserData = JSON.stringify(this.user);
+                //console.log(JSON.stringify(this.user))
                 this.getDataPeople();
            }
            else{
                 console.log("หมายเลขบัตรประชาชนไม่ถูกต้อง");
-                console.log(this.res[12]);
+                alert("หมายเลขบัตรประชาชนไม่ถูกต้อง");
            }
         }
-
+    }
     }
  }

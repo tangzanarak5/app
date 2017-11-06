@@ -1,6 +1,5 @@
-<ActionBar> <label text = "ลงทะเบียนเวชระเบียน"></label></ActionBar>
-<StackLayout>
-    <TextField [(ngModel)]="idCard" hint="หมายเลขบัตรประชาชน"></TextField>
-    <Button class="btn btn-primary" text = "ตรวจสอบ" (tap)="checkIdCard()"></Button>>
-    <Label [text] = "idCard"></Label>
+<StackLayout class="Cloud-Light">
+    <Label text = "ลงทะเบียนเวชระเบียนผู้ป่วยใหม่" class="labelTitle sizeFontTitle fontBlack"></Label>
+    <TextField  keyboardType = "number" [(ngModel)]="idCard" hint="หมายเลขบัตรประชาชน" class="sizeInput sizeFont" maxLength="13"></TextField>
+    <Button class="btn btn-primary Button Cloud-Light sizeFont" text = "ตรวจสอบ" (tap)="checkIdCard()"></Button>
 </StackLayout>

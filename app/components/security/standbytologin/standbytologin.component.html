@@ -1,13 +1,24 @@
 <Page>
-    <StackLayout>
-        <TextField [(ngModel)]="username" hint="หมายเลขผู้ป่วย"></TextField>
-        <TextField [(ngModel)]="password" hint="พาสเวิร์ด"></TextField>
-        <Button class="btn btn-warning" text = "เข้าสู่ระบบ" (tap)="login()"></Button>
+    <ScrollView sdkExampleTitle sdkToggleNavButton>
+    <StackLayout class="Cloud-Light">
 
-        <button class="btn btn-primary" text = "สมัครสมาชิก" [nsRouterLink]="['../registerAccount']"></button>
-        <button class="btn btn-primary" text = "ลงทะเบียนเวชระเบียน" [nsRouterLink]="['../verifyidcard']"></button>
-        <button class="btn btn-primary" text = "ตรวจสอบเลขผู้ป่วย"></button>
+    <StackLayout class="StackBg">
+        <Image class = "sizePicture" src="~/images/logo2.png"></Image>
     </StackLayout>
+    
+    <StackLayout class="Cloud-Light">
+        <Label text = ""></Label>
+        <TextField keyboardType = "number" [(ngModel)]="username" hint="หมายเลขผู้ป่วย" class = "sizeInput marginTop"></TextField>
+        <TextField secure = "true" [(ngModel)]="password" hint="พาสเวิร์ด" class = "sizeInput"></TextField>
+        <Button class="btn btn-primary sizeLogin Cloud-Light" text = "เข้าสู่ระบบ"></Button>
+        <Label text = "หรือ" class="marginMiddle sizeFont"></Label>
+        <button class="btn btn-primary sizeButton Cloud-Light" text = "สมัครสมาชิก" [nsRouterLink]="['../registerAccount']"></button>
+        <button class="btn btn-primary sizeButton Cloud-Light" text = "ลงทะเบียนเวชระเบียน" [nsRouterLink]="['../verifyidcard']"></button>
+        <button class="btn btn-primary sizeButton Cloud-Light" text = "ตรวจสอบการลงทะเบียน" [nsRouterLink]="['../verifyHn']"></button>
+    </StackLayout>
+
+</StackLayout>
+    </ScrollView>
 </Page>
 
 
